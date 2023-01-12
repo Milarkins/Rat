@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Camera.gd" type="Script" id=1]
+
+[sub_resource type="SegmentShape2D" id=1]
+a = Vector2( 0, 540 )
+b = Vector2( 0, -540 )
+
+[node name="Camera2D" type="Camera2D"]
+anchor_mode = 0
+current = true
+smoothing_enabled = true
+script = ExtResource( 1 )
+player = NodePath("../Player")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 0, 540 )
+shape = SubResource( 1 )
